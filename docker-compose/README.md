@@ -1,5 +1,18 @@
-# Sourcegraph with Docker Compose deployment reference
+# Local Sourcegraph with Docker Compose
 
-This directory contains the Sourcegraph with Docker Compose deployment reference.
+> This will be more useful when we can deploy our own Cody instances...
 
-To learn more about deploying, configuring, and upgrading a Sourcegraph with Docker Compose installation, please refer to our documentation: [Sourcegraph with Docker Compose](https://docs.sourcegraph.com/admin/install/docker-compose)
+```bash
+git checkout release
+cd docker-compose
+docker compose up -d
+# Visit localhost:8888
+```
+
+To tear down:
+```bash
+cd docker-compose
+docker compose down
+# Nuke databases ...etc
+docker volume rm $(docker volume ls -q --filter dangling=true)
+```
